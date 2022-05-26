@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: demo-ingresshost 
+# In some scenarios the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request will return 404. Set the annotation nginx.ingress.kubernetes.io/rewrite-target to the path expected by the service.In some scenarios the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request will return 404. Set the annotation nginx.ingress.kubernetes.io/rewrite-target to the path expected by the service.
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
