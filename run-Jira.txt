@@ -1,0 +1,1 @@
+kubectl run jira --image=cptactionhank/atlassian-jira:latest --restart=Never --port=8080

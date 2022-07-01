@@ -8,13 +8,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: a566cdd1b55124d72b3491868d127f3f-1734268893.us-east-1.elb.amazonaws.com 
+  - host: a659c673e50bd42799212099aae179cc-1315754357.us-east-1.elb.amazonaws.com 
     http:
       paths:
-      - path: /example/v1
+      - path: /jira
         pathType: Prefix 
         backend:
           service:
-            name: demo
+            name: jira 
             port:
               number: 80
