@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: haproxy
+  name: haproxy
+spec:
+  containers:
+  - image: haproxy:2.4
+    name: haproxy
+    resources: {}
+    volumeMounts:
+    - name: config
+      mountPath: /usr/local/etc/haproxy/
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: config
+    configMap:
+      name: haproxy-config
+status: {}
