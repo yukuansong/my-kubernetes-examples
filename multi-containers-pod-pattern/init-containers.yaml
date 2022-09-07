@@ -1,0 +1,26 @@
+### 3 scenarios that init comainters is used:
+### (1) Separate Image: to use software that main image doesn't include or need
+### (2) Delay Startup
+### (3) Security: like consuming secret, in isolation from the main container.
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: init-containers
+  name: init-containers
+spec:
+  initContainers:
+  - name: delay-it
+    image: busybox
+    command: ['sh', '-c', 'sleep 60']
+  containers:
+  - args:
+    - echo
+    - hello
+    image: nginx:stable
+    name: init-containers
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
