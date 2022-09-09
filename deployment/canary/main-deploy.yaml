@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: main
+  name: main
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: canary-test
+      environment: main 
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: canary-test
+        environment: main 
+    spec:
+      containers:
+      - image: linuxacademycontent/ckad-nginx:1.0.0
+        name: ckad-nginx
+        resources: {}
+status: {}

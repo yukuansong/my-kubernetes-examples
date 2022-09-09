@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: blue-deployment
+  name: blue-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blue-green-app
+      color: blue 
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: blue-green-app
+        color: blue
+    spec:
+      containers:
+      - image: linuxacademycontent/ckad-nginx:blue 
+        name: nginx
+        resources: {}
+status: {}
