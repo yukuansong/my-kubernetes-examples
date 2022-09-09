@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pv-pod
+  name: pv-pod
+spec:
+  containers:
+  - image: busybox
+    name: pv-pod
+    resources: {}
+    command: ['sh', '-c', 'echo testing > /data/data.txt; cat /data/data.txt']
+    volumeMounts:
+    - name: pv-data
+      mountPath: /data
+  dnsPolicy: ClusterFirst
+  restartPolicy: OnFailure
+  volumes:
+  - name: pv-data
+    persistentVolumeClaim:
+      claimName: pvc-host
+status: {}
