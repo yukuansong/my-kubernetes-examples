@@ -1,0 +1,3 @@
+- ***Liveness Probe:*** indicates if the container is operating. If so, no action is taken. If not, the kubelet kills and restarts the container. Learn more in our guide to Kubernetes liveness probes.
+- ***Readiness Probe:*** indicates whether the application running in the container is ready to accept requests. If so, Services matching the pod are allowed to send traffic to it. If not, the endpoints controller removes the pod from all matching Kubernetes Services.
+- ***Startup Probe:*** indicates whether the application running in the container has started. If so, other probes start functioning. If not, the kubelet kills and restarts the container.
