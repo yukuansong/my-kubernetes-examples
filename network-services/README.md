@@ -7,3 +7,4 @@
 - if a Pod is selected by any NetworkPolicy, traffic will be blocked unless it is allowed by at least 1 NetworkPolicy that selects the Pod.
 - If you combine a namespaceSelector and podSelector within the same rule, the traffic must meet both the Pod- and Namespace-related conditions in order to be allowed.
 - NetworkPolicy is namespaced, means being defined in a specific namespace scope.
+- Tip1: Even if a NetworkPolicy allows outgoing traffic from the source Pod, NetworkPolicies could still block the same traffic when it is incoming to the destination Pod.

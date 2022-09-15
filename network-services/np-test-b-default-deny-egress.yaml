@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-test-b-default-deny-egress
+  namespace: np-test-b
+spec:
+  # Deny all traffic from pods in the namespace np-test-b
+  podSelector: {}
+  policyTypes:
+  - Egress
