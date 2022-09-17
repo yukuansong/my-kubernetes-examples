@@ -5,12 +5,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: a24484ea87c0d4f4fb012b1200259a46-1331248784.us-east-2.elb.amazonaws.com
+    http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: ingress-svc 
+            name: demo 
             port:
               number: 80
