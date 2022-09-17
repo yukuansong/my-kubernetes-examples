@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  # the host take the same name of the ingress controller external address (loadbalancer DNS)
+  - host: a24484ea87c0d4f4fb012b1200259a46-1331248784.us-east-2.elb.amazonaws.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: ingress-svc 
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
